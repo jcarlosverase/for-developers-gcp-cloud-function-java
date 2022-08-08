@@ -1,14 +1,40 @@
 # for-developers-gcp-function-java
 
-```
-To execute the function open http://localhost:8080/ in your browser and see Hello world!
-If you want to provide a parameter then use http://localhost:8080/?message=HelloYou
-
 For all the details see https://cloud.google.com/functions/docs/running/function-frameworks
 
-##Deploy Cloud Function to GCP via gcloud
+
+Run the following command to confirm that your function builds:
+```
+gradlew build
+```
+
+To test the function, run the following command:
+```
+gradlew runFunction -Prun.functionTarget=functions.HelloWorld
+```
+
+If testing completes successfully, it displays the URL you can visit in your web browser to see the function in action: http://localhost:8080/. You should see a Hello World! message.
+
+Alternatively, you can send requests to this function using curl from another terminal window: (commands are escaped for windows)
+```
+curl -i localhost:8080
+curl -i -X POST -H "Content-Type: application/json" "http://localhost:8080" -d "{\"username\": \"ted\",\"password\": \"secret\",\"firstName\": \"Ted\",\"lastName\": \"Baker\",\"email\": \"tedbaker@example.com\"}"
+curl -i -X PUT -H "Content-Type: application/json" "http://localhost:8080/ted" -d "{\"firstName\": \"Teddy\",\"lastName\": \"Norman\",\"email\": \"tnorman@example.com\"}"
+curl -i -X DELETE "http://localhost:8080/bob"
+
+```
+# Output: Hello World!
+
+To deploy the function with an HTTP trigger, run the following command in the helloworld-gradle directory:
 ```
 gcloud auth login
 gcloud config set project PROJECT_ID
-gcloud functions deploy hello_world --region europe-west3 --allow-unauthenticated --memory 128MB --runtime python39 --timeout 90 --min-instances 0 --max-instances 1 --trigger-http --service-account hello-world-function-sa@for-developers-343319.iam.gserviceaccount.com 
+gcloud functions deploy my-first-function --region europe-west3  --entry-point functions.HelloWorld --runtime java17 --trigger-http --memory 512MB --allow-unauthenticated --timeout 90 --min-instances 0 --max-instances 1 --service-account hello-world-function-sa@for-developers-343319.iam.gserviceaccount.com
 ```
+where my-first-function is the registered name by which your function will be identified in the console, and --entry-point specifies your function's fully qualified class name (FQN).
+
+To view logs for your function with the gcloud CLI, use the logs read command, followed by the name of the function:
+```
+gcloud functions logs read my-first-function
+```
+
