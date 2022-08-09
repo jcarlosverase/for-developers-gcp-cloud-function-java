@@ -5,7 +5,7 @@ steps:
       - functions
       - deploy
       - user-function-build
-      - --entry-point functions.UserFunction
+      - --entry-point=functions.UserFunction
       - --region=europe-west3
       - --source=.
       - --trigger-http
