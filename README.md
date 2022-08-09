@@ -5,6 +5,7 @@ For all the details see https://cloud.google.com/functions/docs/running/function
 The Rest api is inspired by https://help.sonatype.com/iqserver/automating/rest-apis/user-rest-api---v2
 
 
+![diagram](diagram.drawio.png?raw=true "Title")
 
 Run the following command to confirm that your function builds:
 ```
