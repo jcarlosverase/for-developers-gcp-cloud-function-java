@@ -4,7 +4,7 @@ steps:
       - gcloud
       - functions
       - deploy
-      - user-function-build
+      - UserFunction
       - --region=europe-west3
       - --source=.
       - --trigger-http
