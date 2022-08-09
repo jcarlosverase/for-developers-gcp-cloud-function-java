@@ -2,6 +2,9 @@
 
 For all the details see https://cloud.google.com/functions/docs/running/function-frameworks
 
+The Rest api is inspired by https://help.sonatype.com/iqserver/automating/rest-apis/user-rest-api---v2
+
+
 
 Run the following command to confirm that your function builds:
 ```
