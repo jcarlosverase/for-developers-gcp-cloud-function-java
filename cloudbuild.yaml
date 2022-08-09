@@ -4,7 +4,7 @@ steps:
       - gcloud
       - functions
       - deploy
-      - my-first-function
+      - user-function-build
       - --region=europe-west3
       - --source=.
       - --trigger-http
@@ -13,7 +13,6 @@ steps:
       - --timeout=90
       - --min-instances=0
       - --max-instances=1
-      - --security-level=secure-always
       - --ingress-settings=all
       - --allow-unauthenticated
-      - --service-account=hello-world-function-sa@for-developers-343319.iam.gserviceaccount.com
+      - --service-account=user-function-sa@for-developers-343319.iam.gserviceaccount.com

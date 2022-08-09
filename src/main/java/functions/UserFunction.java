@@ -27,8 +27,8 @@ public class UserFunction implements HttpFunction {
         switch (request.getMethod()) {
             case "GET":
                 //Get all users
-                response.setStatusCode(HttpURLConnection.HTTP_OK);
                 writer.write(gson.toJson(users));
+                response.setStatusCode(HttpURLConnection.HTTP_OK);
                 break;
             case "POST":
                 //Create user
@@ -53,8 +53,8 @@ public class UserFunction implements HttpFunction {
                     UserVO updatedUser = gson.fromJson(request.getReader(), UserVO.class);
                     updatedUser.setUsername(userToUpdate);
                     users.put(userToUpdate, updatedUser);
-                    response.setStatusCode(HttpURLConnection.HTTP_OK);
                     writer.write(gson.toJson(updatedUser));
+                    response.setStatusCode(HttpURLConnection.HTTP_OK);
                 } else {
                     writer.write("Unable to update non-existend user");
                     response.setStatusCode(HttpURLConnection.HTTP_NOT_FOUND);

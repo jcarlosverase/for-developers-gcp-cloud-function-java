@@ -4,6 +4,8 @@ For all the details see https://cloud.google.com/functions/docs/running/function
 
 The Rest api is inspired by https://help.sonatype.com/iqserver/automating/rest-apis/user-rest-api---v2
 
+Install Google Cloud SDK as in guide at https://cloud.google.com/sdk/docs/install 
+
 
 ![diagram](diagram.drawio.png?raw=true "Title")
 
@@ -14,7 +16,7 @@ gradlew build
 
 To test the function, run the following command:
 ```
-gradlew runFunction -Prun.functionTarget=functions.HelloWorld
+gradlew runFunction -Prun.functionTarget=functions.UserFunction
 ```
 
 If testing completes successfully, it displays the URL you can visit in your web browser to see the function in action: http://localhost:8080/. You should see a Hello World! message.
@@ -27,18 +29,17 @@ curl -i -X PUT -H "Content-Type: application/json" "http://localhost:8080/ted" -
 curl -i -X DELETE "http://localhost:8080/bob"
 
 ```
-# Output: Hello World!
 
 To deploy the function with an HTTP trigger, run the following command in the helloworld-gradle directory:
 ```
 gcloud auth login
 gcloud config set project PROJECT_ID
-gcloud functions deploy my-first-function --region europe-west3  --entry-point functions.HelloWorld --runtime java17 --trigger-http --memory 512MB --allow-unauthenticated --timeout 90 --min-instances 0 --max-instances 1 --service-account hello-world-function-sa@for-developers-343319.iam.gserviceaccount.com
+gcloud functions deploy user-function-manual --region europe-west3  --entry-point functions.UserFunction --runtime java17 --trigger-http --memory 512MB --allow-unauthenticated --timeout 90 --min-instances 0 --max-instances 1 --service-account user-function@test1-358908.iam.gserviceaccount.com
 ```
-where my-first-function is the registered name by which your function will be identified in the console, and --entry-point specifies your function's fully qualified class name (FQN).
+where user-function-manual is the registered name by which your function will be identified in the console, and --entry-point specifies your function's fully qualified class name (FQN).
 
 To view logs for your function with the gcloud CLI, use the logs read command, followed by the name of the function:
 ```
-gcloud functions logs read my-first-function
+gcloud functions logs read user-function-manual --region europe-west3 
 ```
 
