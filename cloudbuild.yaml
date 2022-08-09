@@ -15,4 +15,4 @@ steps:
       - --max-instances=1
       - --ingress-settings=all
       - --allow-unauthenticated
-      - --service-account=user-function-sa@for-developers-343319.iam.gserviceaccount.com
+      - --service-account=user-function@test1-358908.iam.gserviceaccount.com
