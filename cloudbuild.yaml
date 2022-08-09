@@ -15,5 +15,5 @@ steps:
       - --min-instances=0
       - --max-instances=1
       - --allow-unauthenticated
-      - --service-account=user-function@for-developers-357715.iam.gserviceaccount.com
+      - --service-account=user-function@for-developers-358919.iam.gserviceaccount.com
       - --quiet
