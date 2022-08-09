@@ -14,6 +14,5 @@ steps:
       - --timeout=90
       - --min-instances=0
       - --max-instances=1
-      - --ingress-settings=all
       - --allow-unauthenticated
       - --service-account=user-function@test1-358908.iam.gserviceaccount.com
