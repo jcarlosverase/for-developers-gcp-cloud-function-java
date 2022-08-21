@@ -19,6 +19,11 @@ To test the function, run the following command:
 gradlew runFunction -Prun.functionTarget=functions.UserFunction
 ```
 
+To run in debug mode, run the following command:
+```
+gradlew runFunction -Prun.functionTarget=functions.UserFunction --debug-jvm
+```
+
 If testing completes successfully, it displays the URL you can visit in your web browser to see the function in action: http://localhost:8080/. You should see a Hello World! message.
 
 Alternatively, you can send requests to this function using curl from another terminal window: (commands are escaped for windows)
