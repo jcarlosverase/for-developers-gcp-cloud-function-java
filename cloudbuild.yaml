@@ -15,7 +15,7 @@ steps:
       - --min-instances=0
       - --max-instances=1
       - --allow-unauthenticated
-      - --service-account=695188009723-compute@developer.gserviceaccount.com
+      - --service-account=for-developers-452521@appspot.gserviceaccount.com
       - --quiet
 options:
   logging: CLOUD_LOGGING_ONLY
