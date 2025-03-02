@@ -4,9 +4,9 @@ steps:
       - gcloud
       - functions
       - deploy
-      - user-function-build
+      - function-http-firestore
       - --entry-point=functions.UserFunction
-      - --region=europe-west3
+      - --region=us-central1
       - --source=.
       - --trigger-http
       - --runtime=java17
@@ -15,5 +15,5 @@ steps:
       - --min-instances=0
       - --max-instances=1
       - --allow-unauthenticated
-      - --service-account=user-function@for-developers-358919.iam.gserviceaccount.com
+      - --service-account=695188009723-compute@developer.gserviceaccount.com
       - --quiet
