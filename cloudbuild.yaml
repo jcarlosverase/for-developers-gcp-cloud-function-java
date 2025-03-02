@@ -17,3 +17,5 @@ steps:
       - --allow-unauthenticated
       - --service-account=695188009723-compute@developer.gserviceaccount.com
       - --quiet
+options:
+  logging: CLOUD_LOGGING_ONLY
