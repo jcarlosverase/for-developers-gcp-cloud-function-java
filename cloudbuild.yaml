@@ -4,7 +4,7 @@ steps:
       - gcloud
       - functions
       - deploy
-      - function-http-firestore
+      - function-http-firestore-gc
       - --entry-point=functions.UserFunction
       - --region=us-central1
       - --source=.
